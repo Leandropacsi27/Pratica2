@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPA Responsive sin Bootstrap</title>
+    <style></style>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo">MiLogo</div>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      <div class="nav-links" id="navLinks">
+        <button onclick="show('home')">Inicio</button>
+        <button onclick="show('about')">Acerca de</button>
+        <button onclick="show('contact')">Contacto</button>
+      </div>
+    </nav>
+
+    <!-- Contenido -->
+    <div class="container">
+      <section id="home" class="active">
+        <h1>
+          Flexbox: La Herramienta Clave para Layouts Responsivos y Modernos
+        </h1>
+        <div class="examplebox">
+          <h3>1. ¿Qué es Flexbox?</h3>
+          <p>
+            Flexbox es una herramienta de CSS que nos ayuda a organizar los
+            elementos de una página de forma sencilla. Puedes alinear elementos
+            en filas o columnas y hacer que se adapten automáticamente al
+            espacio disponible.
+          </p>
+        </div>
+        <div class="examplebox">
+          <h3>2. ¿Cómo activarlo?</h3>
+          <p>Agrega <code>display: flex</code> al contenedor principal:</p>
+          <pre><code>.container {
+  display: flex;
+}</code></pre>
+        </div>
+        <div class="examplebox">
+          <h3>3. Ejemplo básico editable</h3>
+
+          <label for="cssCodeExample">CSS editable para las cajas:</label><br />
+          <textarea id="cssCodeExample" rows="6" cols="50">
+background: #3498db;
+color: white;
+padding: 20px;
+margin: 5px;
+text-align: center;
+  </textarea
+          >
+
+          <div class="container-demo" id="flexContainer">
+            <div class="box-demo">Caja 1</div>
+            <div class="box-demo">Caja 2</div>
+            <div class="box-demo">Caja 3</div>
+          </div>
+
+          <pre><code id="codeBlock">
+.container-demo .box-demo {
+  background: #3498db;
+  color: white;
+  padding: 20px;
+  margin: 5px;
+  text-align: center;
+}
+  </code></pre>
+        </div>
+
+        <div class="examplebox">
+          <h3>4. Dirección: flex-direction</h3>
+          <p>Controla si los elementos van en fila o en columna:</p>
+          <pre><code>.container {
+  flex-direction: column;
+}</code></pre>
+        </div>
+
+        <h3>5. Alineación horizontal: justify-content</h3>
+        <p>Organiza los elementos horizontalmente:</p>
+        <pre><code>.container {
+  justify-content: space-between;
+}</code></pre>
+        <ul>
+          <li><code>flex-start</code>: al inicio</li>
+          <li><code>center</code>: al centro</li>
+          <li><code>flex-end</code>: al final</li>
+          <li><code>space-between</code>: espacio entre</li>
+          <li><code>space-around</code>: espacio alrededor</li>
+        </ul>
+
+        <h3>6. Alineación vertical: align-items</h3>
+        <pre><code>.container {
+  align-items: center;
+}</code></pre>
+
+        <h3>7. Ocupar espacio: flex</h3>
+        <pre><code>.box {
+  flex: 1;
+}</code></pre>
+
+        <h3>8. Cambiar el orden: order</h3>
+        <pre><code>.box:first-child {
+  order: 3;
+}</code></pre>
+
+        <h3>9. Ejemplo completo</h3>
+        <pre><code>&lt;style&gt;
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+  background: #eee;
+}
+.box {
+  background: #2ecc71;
+  color: white;
+  padding: 30px;
+  margin: 10px;
+  flex: 1;
+  text-align: center;
+}
+&lt;/style&gt;
+
+&lt;div class="container"&gt;
+  &lt;div class="box"&gt;Caja A&lt;/div&gt;
+  &lt;div class="box"&gt;Caja B&lt;/div&gt;
+  &lt;div class="box"&gt;Caja C&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <h3>10. ¿Cuándo usar Flexbox?</h3>
+        <ul>
+          <li>Cuando necesitas alinear elementos fácilmente</li>
+          <li>Cuando haces diseño responsivo</li>
+          <li>Cuando los elementos deben distribuirse equitativamente</li>
+        </ul>
+
+        <h3>11. Recursos útiles</h3>
+        <ul>
+          <li>
+            <a href="https://flexboxfroggy.com/#es" target="_blank"
+              >Flexbox Froggy (juego)</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+              target="_blank"
+              >Guía visual de CSS Tricks</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_flexible_box_layout"
+              target="_blank"
+              >Documentación de MDN</a
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section id="about">
+        <h1>Acerca de</h1>
+        <p>Esta es la sección de información sobre nosotros.</p>
+      </section>
+
+      <section id="contact">
+        <h1>Contacto</h1>
+        <p>Puedes escribirnos en cualquier momento.</p>
+      </section>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
