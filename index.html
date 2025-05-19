@@ -3,28 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SPA Responsive sin Bootstrap</title>
+    <title>Flexbox,Grid y LESS</title>
     <style></style>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Navbar -->
     <nav>
-      <div class="logo">MiLogo</div>
+      <div class="logo">Leandro Pacsi</div>
       <button class="menu-btn" onclick="toggleMenu()">☰</button>
       <div class="nav-links" id="navLinks">
-        <button onclick="show('home')">Inicio</button>
-        <button onclick="show('about')">Acerca de</button>
-        <button onclick="show('contact')">Contacto</button>
+        <button onclick="show('flexbox')">Flexbox</button>
+        <button onclick="show('grid')">Grid</button>
+        <button onclick="show('less')">LESS</button>
       </div>
     </nav>
 
-    <!-- Contenido -->
     <div class="container">
-      <section id="home" class="active">
+      <section id="flexbox" class="active">
         <h1>
           Flexbox: La Herramienta Clave para Layouts Responsivos y Modernos
         </h1>
+
         <div class="examplebox">
           <h3>1. ¿Qué es Flexbox?</h3>
           <p>
@@ -34,147 +33,875 @@
             espacio disponible.
           </p>
         </div>
-        <div class="examplebox">
-          <h3>2. ¿Cómo activarlo?</h3>
-          <p>Agrega <code>display: flex</code> al contenedor principal:</p>
-          <pre><code>.container {
-  display: flex;
-}</code></pre>
-        </div>
+
+        <!-- Punto 3: Ejemplo básico editable -->
         <div class="examplebox">
           <h3>3. Ejemplo básico editable</h3>
 
           <label for="cssCodeExample">CSS editable para las cajas:</label><br />
           <textarea id="cssCodeExample" rows="6" cols="50">
-background: #3498db;
-color: white;
-padding: 20px;
-margin: 5px;
-text-align: center;
-  </textarea
-          >
+      background: #3498db;
+      color: white;
+      padding: 20px;
+      margin: 5px;
+      text-align: center;
+          </textarea>
 
-          <div class="container-demo" id="flexContainer">
+          <div class="container-demo" id="flexContainer" style="display: flex">
             <div class="box-demo">Caja 1</div>
             <div class="box-demo">Caja 2</div>
             <div class="box-demo">Caja 3</div>
           </div>
 
           <pre><code id="codeBlock">
-.container-demo .box-demo {
-  background: #3498db;
-  color: white;
-  padding: 20px;
-  margin: 5px;
-  text-align: center;
-}
-  </code></pre>
+      .container-demo .box-demo {
+        background: #3498db;
+        color: white;
+        padding: 20px;
+        margin: 5px;
+        text-align: center;
+      }
+          </code></pre>
+        </div>
+
+        <!-- Punto 4: Dirección flex-direction -->
+        <div class="examplebox">
+          <h3>4. Dirección: flex-direction (editable)</h3>
+          <p>Controla si los elementos van en fila o en columna:</p>
+
+          <label for="directionInput"
+            >Edita el valor de <code>flex-direction</code>:</label
+          ><br />
+          <textarea id="directionInput" rows="2" cols="50">row</textarea>
+
+          <div
+            class="container-demo"
+            id="directionContainer"
+            style="display: flex"
+          >
+            <div class="box-demo">Caja 1</div>
+            <div class="box-demo">Caja 2</div>
+            <div class="box-demo">Caja 3</div>
+          </div>
+
+          <pre><code id="directionCode">
+      .container {
+        display: flex;
+        flex-direction: row;
+      }
+          </code></pre>
+        </div>
+
+        <!-- Punto 5: Alineación horizontal justify-content -->
+        <div class="examplebox">
+          <h3>5. Alineación horizontal: justify-content (editable)</h3>
+          <p>Organiza los elementos horizontalmente:</p>
+
+          <label for="justifyInput"
+            >Edita el valor de <code>justify-content</code>:</label
+          ><br />
+          <textarea id="justifyInput" rows="2" cols="50">
+space-between</textarea
+          >
+
+          <div
+            class="container-demo"
+            id="justifyContainer"
+            style="display: flex; height: 100px; background: #eee"
+          >
+            <div
+              class="box-demo"
+              style="background: #2ecc71; color: white; padding: 20px"
+            >
+              Caja 1
+            </div>
+            <div
+              class="box-demo"
+              style="background: #2ecc71; color: white; padding: 20px"
+            >
+              Caja 2
+            </div>
+            <div
+              class="box-demo"
+              style="background: #2ecc71; color: white; padding: 20px"
+            >
+              Caja 3
+            </div>
+          </div>
+
+          <pre><code id="justifyCode">
+      .container {
+        display: flex;
+        justify-content: space-between;
+      }
+          </code></pre>
+
+          <ul>
+            <li><code>flex-start</code>: al inicio</li>
+            <li><code>center</code>: al centro</li>
+            <li><code>flex-end</code>: al final</li>
+            <li><code>space-between</code>: espacio entre</li>
+            <li><code>space-around</code>: espacio alrededor</li>
+          </ul>
+        </div>
+
+        <!-- Punto 6: Alineación vertical align-items -->
+        <div class="examplebox">
+          <h3>6. Alineación vertical: align-items (editable)</h3>
+
+          <label for="alignInput"
+            >Edita el valor de <code>align-items</code>:</label
+          ><br />
+          <textarea id="alignInput" rows="2" cols="50">center</textarea>
+
+          <div
+            class="container-demo"
+            id="alignContainer"
+            style="display: flex; height: 100px; background: #eee"
+          >
+            <div
+              class="box-demo"
+              style="background: #e67e22; color: white; padding: 20px"
+            >
+              Caja 1
+            </div>
+            <div
+              class="box-demo"
+              style="background: #e67e22; color: white; padding: 40px"
+            >
+              Caja 2
+            </div>
+            <div
+              class="box-demo"
+              style="background: #e67e22; color: white; padding: 10px"
+            >
+              Caja 3
+            </div>
+          </div>
+
+          <pre><code id="alignCode">
+      .container {
+        display: flex;
+        align-items: center;
+      }
+          </code></pre>
+        </div>
+
+        <!-- Punto 7: Flex para ocupar espacio -->
+        <div class="examplebox">
+          <h3>7. Ocupar espacio: flex (editable)</h3>
+
+          <label for="flexInput"
+            >Edita el valor de <code>flex</code> para las cajas:</label
+          ><br />
+          <textarea id="flexInput" rows="2" cols="50">1</textarea>
+
+          <div
+            class="container-demo"
+            id="flexSpaceContainer"
+            style="display: flex; height: 100px; background: #eee"
+          >
+            <div
+              class="box-demo"
+              style="
+                background: #9b59b6;
+                color: white;
+                padding: 20px;
+                margin: 5px;
+                text-align: center;
+              "
+            >
+              Caja 1
+            </div>
+            <div
+              class="box-demo"
+              style="
+                background: #9b59b6;
+                color: white;
+                padding: 20px;
+                margin: 5px;
+                text-align: center;
+              "
+            >
+              Caja 2
+            </div>
+            <div
+              class="box-demo"
+              style="
+                background: #9b59b6;
+                color: white;
+                padding: 20px;
+                margin: 5px;
+                text-align: center;
+              "
+            >
+              Caja 3
+            </div>
+          </div>
+
+          <pre><code id="flexCode">
+      .box {
+        flex: 1;
+      }
+          </code></pre>
+        </div>
+
+        <!-- Punto 8: Cambiar orden -->
+        <div class="examplebox">
+          <h3>8. Cambiar el orden: order (editable)</h3>
+
+          <label for="orderInput"
+            >Edita el valor de <code>order</code> para la primera caja:</label
+          ><br />
+          <textarea id="orderInput" rows="2" cols="50">3</textarea>
+
+          <div
+            class="container-demo"
+            id="orderContainer"
+            style="display: flex; height: 100px; background: #eee"
+          >
+            <div
+              class="box-demo"
+              style="
+                background: #e74c3c;
+                color: white;
+                padding: 20px;
+                margin: 5px;
+                text-align: center;
+              "
+            >
+              Caja 1
+            </div>
+            <div
+              class="box-demo"
+              style="
+                background: #e74c3c;
+                color: white;
+                padding: 20px;
+                margin: 5px;
+                text-align: center;
+              "
+            >
+              Caja 2
+            </div>
+            <div
+              class="box-demo"
+              style="
+                background: #e74c3c;
+                color: white;
+                padding: 20px;
+                margin: 5px;
+                text-align: center;
+              "
+            >
+              Caja 3
+            </div>
+          </div>
+
+          <pre><code id="orderCode">
+      .box:first-child {
+        order: 3;
+      }
+          </code></pre>
+        </div>
+
+        <!-- Punto 9: Ejemplo completo (no editable) -->
+        <div class="examplebox">
+          <h3>9. Ejemplo completo</h3>
+          <pre><code>
+      &lt;style&gt;
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 200px;
+        background: #eee;
+      }
+      .box {
+        background: #2ecc71;
+        color: white;
+        padding: 30px;
+        margin: 10px;
+        flex: 1;
+        text-align: center;
+      }
+      &lt;/style&gt;
+      
+      &lt;div class="container"&gt;
+        &lt;div class="box"&gt;Caja A&lt;/div&gt;
+        &lt;div class="box"&gt;Caja B&lt;/div&gt;
+        &lt;div class="box"&gt;Caja C&lt;/div&gt;
+      &lt;/div&gt;
+          </code></pre>
         </div>
 
         <div class="examplebox">
-          <h3>4. Dirección: flex-direction</h3>
-          <p>Controla si los elementos van en fila o en columna:</p>
-          <pre><code>.container {
-  flex-direction: column;
-}</code></pre>
+          <h3>10. ¿Cuándo usar Flexbox?</h3>
+          <ul>
+            <li>Cuando necesitas alinear elementos fácilmente</li>
+            <li>Cuando haces diseño responsivo</li>
+            <li>Cuando los elementos deben distribuirse equitativamente</li>
+          </ul>
         </div>
 
-        <h3>5. Alineación horizontal: justify-content</h3>
-        <p>Organiza los elementos horizontalmente:</p>
-        <pre><code>.container {
-  justify-content: space-between;
-}</code></pre>
-        <ul>
-          <li><code>flex-start</code>: al inicio</li>
-          <li><code>center</code>: al centro</li>
-          <li><code>flex-end</code>: al final</li>
-          <li><code>space-between</code>: espacio entre</li>
-          <li><code>space-around</code>: espacio alrededor</li>
-        </ul>
+        <div class="examplebox">
+          <h3>11. Recursos útiles</h3>
+          <ul>
+            <li>
+              <a href="https://flexboxfroggy.com/#es" target="_blank"
+                >Flexbox Froggy (juego)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+                target="_blank"
+                >Guía visual de CSS Tricks</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_flexible_box_layout"
+                target="_blank"
+                >Documentación de MDN</a
+              >
+            </li>
+          </ul>
+        </div>
 
-        <h3>6. Alineación vertical: align-items</h3>
-        <pre><code>.container {
-  align-items: center;
-}</code></pre>
+        <!-- Script para todos los ejemplos interactivos -->
+        <script>
+          // Punto 3: Ejemplo básico editable
+          const textarea = document.getElementById("cssCodeExample");
+          const styleBlock = document.createElement("style");
+          document.head.appendChild(styleBlock);
 
-        <h3>7. Ocupar espacio: flex</h3>
-        <pre><code>.box {
-  flex: 1;
-}</code></pre>
+          textarea.addEventListener("input", () => {
+            const cssContent = `.container-demo .box-demo { ${textarea.value} }`;
+            styleBlock.textContent = cssContent;
+            document.getElementById("codeBlock").textContent = cssContent;
+          });
+          textarea.dispatchEvent(new Event("input"));
 
-        <h3>8. Cambiar el orden: order</h3>
-        <pre><code>.box:first-child {
-  order: 3;
-}</code></pre>
+          // Punto 4: flex-direction
+          const directionInput = document.getElementById("directionInput");
+          const directionContainer =
+            document.getElementById("directionContainer");
+          const directionCode = document.getElementById("directionCode");
 
-        <h3>9. Ejemplo completo</h3>
-        <pre><code>&lt;style&gt;
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 200px;
-  background: #eee;
-}
-.box {
-  background: #2ecc71;
-  color: white;
-  padding: 30px;
-  margin: 10px;
-  flex: 1;
-  text-align: center;
-}
-&lt;/style&gt;
+          directionInput.addEventListener("input", () => {
+            const value = directionInput.value.trim();
+            directionContainer.style.flexDirection = value;
+            directionCode.textContent = `.container {\n  display: flex;\n  flex-direction: ${value};\n}`;
+          });
+          directionInput.dispatchEvent(new Event("input"));
 
-&lt;div class="container"&gt;
-  &lt;div class="box"&gt;Caja A&lt;/div&gt;
-  &lt;div class="box"&gt;Caja B&lt;/div&gt;
-  &lt;div class="box"&gt;Caja C&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+          // Punto 5: justify-content
+          const justifyInput = document.getElementById("justifyInput");
+          const justifyContainer = document.getElementById("justifyContainer");
+          const justifyCode = document.getElementById("justifyCode");
 
-        <h3>10. ¿Cuándo usar Flexbox?</h3>
-        <ul>
-          <li>Cuando necesitas alinear elementos fácilmente</li>
-          <li>Cuando haces diseño responsivo</li>
-          <li>Cuando los elementos deben distribuirse equitativamente</li>
-        </ul>
+          justifyInput.addEventListener("input", () => {
+            const value = justifyInput.value.trim();
+            justifyContainer.style.justifyContent = value;
+            justifyCode.textContent = `.container {\n  display: flex;\n  justify-content: ${value};\n}`;
+          });
+          justifyInput.dispatchEvent(new Event("input"));
 
-        <h3>11. Recursos útiles</h3>
-        <ul>
-          <li>
-            <a href="https://flexboxfroggy.com/#es" target="_blank"
-              >Flexbox Froggy (juego)</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
-              target="_blank"
-              >Guía visual de CSS Tricks</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_flexible_box_layout"
-              target="_blank"
-              >Documentación de MDN</a
-            >
-          </li>
-        </ul>
+          // Punto 6: align-items
+          const alignInput = document.getElementById("alignInput");
+          const alignContainer = document.getElementById("alignContainer");
+          const alignCode = document.getElementById("alignCode");
+
+          alignInput.addEventListener("input", () => {
+            const value = alignInput.value.trim();
+            alignContainer.style.alignItems = value;
+            alignCode.textContent = `.container {\n  display: flex;\n  align-items: ${value};\n}`;
+          });
+          alignInput.dispatchEvent(new Event("input"));
+
+          // Punto 7: flex para ocupar espacio
+          const flexInput = document.getElementById("flexInput");
+          const flexSpaceContainer =
+            document.getElementById("flexSpaceContainer");
+
+          flexInput.addEventListener("input", () => {
+            const value = flexInput.value.trim();
+            Array.from(flexSpaceContainer.children).forEach((box) => {
+              box.style.flex = value;
+            });
+            document.getElementById(
+              "flexCode"
+            ).textContent = `.box {\n  flex: ${value};\n}`;
+          });
+          flexInput.dispatchEvent(new Event("input"));
+
+          // Punto 8: order
+          const orderInput = document.getElementById("orderInput");
+          const orderContainer = document.getElementById("orderContainer");
+
+          orderInput.addEventListener("input", () => {
+            const value = orderInput.value.trim();
+            const firstChild = orderContainer.firstElementChild;
+            firstChild.style.order = value;
+            document.getElementById(
+              "orderCode"
+            ).textContent = `.box:first-child {\n  order: ${value};\n}`;
+          });
+          orderInput.dispatchEvent(new Event("input"));
+        </script>
       </section>
 
-      <section id="about">
-        <h1>Acerca de</h1>
-        <p>Esta es la sección de información sobre nosotros.</p>
+      <section id="grid">
+        <h1>CSS Grid: Control Total para Diseños Web Bidimensionales</h1>
+        <div class="examplebox">
+          <h3>1. ¿Qué es Grid?</h3>
+          <p>
+            CSS Grid es un sistema de diseño bidimensional que permite crear
+            layouts en filas y columnas de manera sencilla y flexible. Es ideal
+            para organizar contenido en una página web con estructuras
+            complejas, ya que facilita el control del diseño tanto en horizontal
+            como en vertical.
+          </p>
+        </div>
+
+        <div class="examplebox">
+          <h3>2. Conceptos básicos</h3>
+          <ul>
+            <li>
+              <strong>Contenedor Grid:</strong> Es el elemento padre al que se
+              le aplica <code>display: grid;</code>.
+            </li>
+            <li>
+              <strong>Elementos Grid:</strong> Son los hijos directos del
+              contenedor grid.
+            </li>
+            <li>
+              <strong>Filas y columnas:</strong> Se definen usando
+              <code>grid-template-columns</code> y
+              <code>grid-template-rows</code>.
+            </li>
+            <li>
+              <strong>Áreas de Grid:</strong> Son zonas nombradas dentro del
+              grid para ubicar elementos.
+            </li>
+          </ul>
+        </div>
+
+        <div class="examplebox">
+          <h3>3. Propiedades principales</h3>
+          <ul>
+            <li>
+              <code>display: grid;</code> — Activa el modo Grid en el
+              contenedor.
+            </li>
+            <li>
+              <code>grid-template-columns</code> y
+              <code>grid-template-rows</code> — Definen columnas y filas.<br />
+              <pre><code>grid-template-columns: 100px 200px 1fr;
+      grid-template-rows: auto 50px;</code></pre>
+            </li>
+            <li>
+              <code>gap</code> — Espacio entre filas y columnas.<br />
+              <pre><code>gap: 10px 20px;</code></pre>
+            </li>
+            <li>
+              <code>grid-area</code> — Posición específica en la cuadrícula.<br />
+              <pre><code>grid-area: 1 / 2 / 3 / 4;</code></pre>
+            </li>
+          </ul>
+        </div>
+
+        <div class="examplebox">
+          <h3>4. Ejemplos prácticos</h3>
+
+          <!-- 1. Crear cuadrícula básica editable -->
+          <div class="examplebox">
+            <h4>4.1. Crear una cuadrícula básica</h4>
+
+            <label for="cols1">grid-template-columns:</label><br />
+            <textarea id="cols1" rows="1" cols="40">100px 100px 100px</textarea
+            ><br />
+            <label for="rows1">grid-template-rows:</label><br />
+            <textarea id="rows1" rows="1" cols="40">100px 100px</textarea><br />
+            <label for="gap1">gap:</label><br />
+            <textarea id="gap1" rows="1" cols="40">10px</textarea>
+
+            <div
+              id="gridContainer1"
+              style="display: grid; background-color: #ddd; margin-top: 10px"
+            >
+              <div
+                class="item"
+                style="
+                  background-color: #6c5ce7;
+                  color: white;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 24px;
+                "
+              >
+                1
+              </div>
+              <div
+                class="item"
+                style="
+                  background-color: #6c5ce7;
+                  color: white;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 24px;
+                "
+              >
+                2
+              </div>
+              <div
+                class="item"
+                style="
+                  background-color: #6c5ce7;
+                  color: white;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 24px;
+                "
+              >
+                3
+              </div>
+              <div
+                class="item"
+                style="
+                  background-color: #6c5ce7;
+                  color: white;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 24px;
+                "
+              >
+                4
+              </div>
+            </div>
+
+            <pre><code id="codeGrid1"></code></pre>
+          </div>
+
+          <!-- 2. Posicionar elementos editable -->
+          <div class="examplebox">
+            <h4>4.2. Posicionar elementos en filas y columnas específicas</h4>
+
+            <label for="item1Col">.item1 grid-column:</label><br />
+            <textarea id="item1Col" rows="1" cols="30">1 / 3</textarea><br />
+            <label for="item1Row">.item1 grid-row:</label><br />
+            <textarea id="item1Row" rows="1" cols="30">1 / 2</textarea><br />
+
+            <label for="item4Col">.item4 grid-column:</label><br />
+            <textarea id="item4Col" rows="1" cols="30">3 / 4</textarea><br />
+            <label for="item4Row">.item4 grid-row:</label><br />
+            <textarea id="item4Row" rows="1" cols="30">2 / 3</textarea>
+
+            <div
+              id="gridContainer2"
+              style="
+                display: grid;
+                grid-template-columns: 100px 100px 100px;
+                grid-template-rows: 100px 100px;
+                gap: 10px;
+                background-color: #ddd;
+                margin-top: 10px;
+              "
+            >
+              <div
+                id="item1"
+                style="
+                  background-color: #6c5ce7;
+                  color: white;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 24px;
+                "
+              >
+                1
+              </div>
+              <div
+                id="item2"
+                style="
+                  background-color: #6c5ce7;
+                  color: white;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 24px;
+                "
+              >
+                2
+              </div>
+              <div
+                id="item3"
+                style="
+                  background-color: #6c5ce7;
+                  color: white;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 24px;
+                "
+              >
+                3
+              </div>
+              <div
+                id="item4"
+                style="
+                  background-color: #6c5ce7;
+                  color: white;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 24px;
+                "
+              >
+                4
+              </div>
+            </div>
+
+            <pre><code id="codeGrid2"></code></pre>
+          </div>
+
+          <!-- 3. Uso de áreas nombradas editable -->
+          <div class="examplebox">
+            <h4>4.3. Uso de áreas nombradas</h4>
+
+            <label for="cols3">grid-template-columns:</label><br />
+            <textarea id="cols3" rows="1" cols="40">1fr 1fr 1fr</textarea><br />
+            <label for="rows3">grid-template-rows:</label><br />
+            <textarea id="rows3" rows="1" cols="40">80px 80px</textarea><br />
+            <label for="areas3">grid-template-areas:</label><br />
+            <textarea id="areas3" rows="3" cols="40">
+"header header header"
+      "sidebar content content"</textarea
+            ><br />
+
+            <div
+              id="gridContainer3"
+              style="display: grid; gap: 10px; margin-top: 10px"
+            >
+              <div
+                id="header"
+                style="
+                  background-color: #0984e3;
+                  color: white;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                header
+              </div>
+              <div
+                id="sidebar"
+                style="
+                  background-color: #00b894;
+                  color: white;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                sidebar
+              </div>
+              <div
+                id="content"
+                style="
+                  background-color: #fd79a8;
+                  color: white;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                content
+              </div>
+            </div>
+
+            <pre><code id="codeGrid3"></code></pre>
+          </div>
+
+          <!-- 4. Diseño responsive con Grid editable -->
+          <div class="examplebox">
+            <h4>4.5 Ejemplo de diseño responsive con Grid</h4>
+
+            <label for="cols4">grid-template-columns:</label><br />
+            <textarea id="cols4" rows="1" cols="50">
+repeat(auto-fit, minmax(150px, 1fr))</textarea
+            ><br />
+            <label for="gap4">gap:</label><br />
+            <textarea id="gap4" rows="1" cols="50">15px</textarea>
+
+            <div
+              id="gridContainer4"
+              style="display: grid; gap: 15px; margin-top: 10px"
+            >
+              <div style="background-color: #6c5ce7; height: 100px"></div>
+              <div style="background-color: #00b894; height: 100px"></div>
+              <div style="background-color: #fd79a8; height: 100px"></div>
+              <div style="background-color: #d63031; height: 100px"></div>
+            </div>
+
+            <pre><code id="codeGrid4"></code></pre>
+          </div>
+        </div>
+        <div class="examplebox">
+          <h2>5. ¿Cuándo usar Flexbox?</h2>
+          <ul>
+            <li>Cuando necesitas alinear elementos fácilmente.</li>
+            <li>Cuando haces diseño responsivo.</li>
+            <li>Cuando los elementos deben distribuirse equitativamente.</li>
+          </ul>
+        </div>
+
+        <div class="examplebox">
+          <h2>6. Recursos útiles</h2>
+          <ul>
+            <li>
+              <a href="https://flexboxfroggy.com" target="_blank"
+                >Flexbox Froggy (juego)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://css-tricks.com/snippets/css/complete-guide-grid/"
+                target="_blank"
+                >Guía visual de CSS Tricks</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_Grid_Layout"
+                target="_blank"
+                >Documentación de MDN</a
+              >
+            </li>
+          </ul>
+        </div>
       </section>
 
-      <section id="contact">
-        <h1>Contacto</h1>
-        <p>Puedes escribirnos en cualquier momento.</p>
+      <section id="less">
+        <h1>
+          LESS: Potencia y Organización para un CSS Escalable y Mantenible
+        </h1>
+        <div class="examplebox">
+          <h3>1. ¿Qué es LESS?</h3>
+          <p>
+            LESS (Leaner Style Sheets) es un preprocesador de CSS que mejora la
+            forma en que escribimos estilos. Añade características como
+            variables, mixins (funciones reutilizables), anidamiento y
+            operaciones matemáticas, lo cual permite escribir código más limpio,
+            organizado y fácil de mantener. LESS se compila a CSS estándar, por
+            lo que puede usarse en cualquier proyecto web moderno.
+          </p>
+        </div>
+        <div class="examplebox">
+          <h3>2. Variables</h3>
+          <p>Ejemplo editable:</p>
+          <textarea id="less-example-1" rows="6" style="width: 100">
+      @primary-color: #3498db;
+      
+      body {
+        background-color: @primary-color;
+      }
+        </textarea
+          >
+          <h3>Resultado (simulado CSS):</h3>
+          <pre id="css-result-1" style="background: #222; padding: 10px"></pre>
+        </div>
+        <div class="examplebox">
+          <h3>3. Anidamiento</h3>
+          <p>Ejemplo editable:</p>
+          <textarea id="less-example-2" rows="8" style="width: 100%">
+      nav {
+        ul {
+          margin: 0;
+          padding: 0;
+      
+          li {
+            list-style: none;
+          }
+        }
+      }
+        </textarea
+          >
+          <h3>Resultado (simulado CSS):</h3>
+          <pre id="css-result-2" style="background: #222; padding: 10px"></pre>
+        </div>
+
+        <div class="examplebox">
+          <h3>4. Mixins</h3>
+          <p>Ejemplo editable:</p>
+          <textarea id="less-example-3" rows="8" style="width: 100%">
+      .rounded-corners(@radius) {
+        border-radius: @radius;
+      }
+      
+      .box {
+        .rounded-corners(10px);
+      }
+        </textarea
+          >
+          <h3>Resultado (simulado CSS):</h3>
+          <pre id="css-result-3" style="background: #222; padding: 10px"></pre>
+        </div>
+
+        <div class="examplebox">
+          <h3>5. Operaciones</h3>
+          <p>Ejemplo editable:</p>
+          <textarea id="less-example-4" rows="6" style="width: 100%">
+      @ancho: 200px;
+      
+      .sidebar {
+        width: @ancho / 2; // 100px
+      }
+        </textarea
+          >
+          <h3>Resultado (simulado CSS):</h3>
+          <pre id="css-result-4" style="background: #222; padding: 10px"></pre>
+        </div>
+        <div class="examplebox">
+          <h3>6. ¿Cuándo usar Flexbox?</h3>
+          <ul>
+            <li>Cuando necesitas alinear elementos fácilmente.</li>
+            <li>Cuando haces diseño responsivo.</li>
+            <li>Cuando los elementos deben distribuirse equitativamente.</li>
+          </ul>
+        </div>
+
+        <div class="examplebox">
+          <h3>7. Recursos útiles</h3>
+          <ul>
+            <li>
+              <a href="https://flexboxfroggy.com" target="_blank"
+                >Flexbox Froggy (juego)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://css-tricks.com/snippets/less-guide/"
+                target="_blank"
+                >Guía visual de CSS Tricks</a
+              >
+            </li>
+            <li>
+              <a href="https://lesscss.org" target="_blank"
+                >Documentación oficial de LESS</a
+              >
+            </li>
+          </ul>
+        </div>
       </section>
     </div>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>

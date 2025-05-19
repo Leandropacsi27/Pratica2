@@ -1,3 +1,6 @@
+:root {
+  color-scheme: light dark;
+}
 * {
   margin: 0;
   padding: 0;
@@ -5,26 +8,27 @@
   font-family: sans-serif;
 }
 
-body {
-  background-color: #f4f4f4;
-}
+
 h1 {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin: 2rem 0 2rem 0;
   text-align: center;
 }
 
 
 /* NAVBAR */
 nav {
-  background-color: #333;
+  background-color: #2D404E;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  position: relative;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .logo {
@@ -43,7 +47,7 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 1rem;
+  gap: 4rem;
   margin: 0 auto;
 }
 
@@ -73,6 +77,7 @@ section {
 
 section.active {
   display: block;
+  padding: 0.5rem;
 }
 pre {
   background: #272822;
@@ -108,8 +113,8 @@ textarea {
 }
 
 .examplebox {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 @keyframes fade {
@@ -135,6 +140,7 @@ textarea {
     width: 100%;
     background-color: #444;
     display: none;
+    gap: 1rem;
   }
 
   .nav-links.show {
@@ -147,4 +153,8 @@ textarea {
     width: 100%;
     text-align: left;
   }
+}
+
+.examplebox ul{
+  padding: 1rem;
 }
